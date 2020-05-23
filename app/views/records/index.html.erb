@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>自分の練習日記</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>タイトル</th>
+			<th>走行距離</th>
+      <th>登録日</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @records.each do |record| %>
+      <tr>
+        <td><%= record.title %></td>
+				<td><%= record.distance %></td>
+        <td><%= record.start_time.strftime("%Y-%m-%d %H:%M") %></td>
+        <td><%= link_to 'Show', record %></td>
+        <td><%= link_to 'Edit', edit_record_path(record.id) %></td>
+        <td><%= link_to 'Destroy',record_path(record.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '練習日記をかく', new_record_path %>
+
+<%= month_calendar events: @records do |date, records| %>
+  <%= date.day %>
+
+  <% records.each do |record| %>
+    <div>
+      <%= link_to record.title, record %>
+    </div>
+  <% end %>
+<% end %>

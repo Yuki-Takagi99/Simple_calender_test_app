@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>タイトル</strong>
+  <%= @record.title %>
+</p>
+
+<p>
+  <strong>時間</strong>
+  <%= @record.start_time.strftime("%Y-%m-%d %H:%M") %>
+</p>
+
+<p>
+  <strong>走行距離</strong>
+  <%= @record.distance %>
+</p>
+
+
+<p>
+  <strong>内容</strong>
+  <%= @record.content %>
+</p>
+
+<%= link_to 'Edit', edit_record_path(@record) %> |
+<%= link_to 'Back', records_path %>
