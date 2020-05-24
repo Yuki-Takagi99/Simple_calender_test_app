@@ -1,4 +1,4 @@
-<h1>記録をつける！</h1>
+<h1>記録を編集する！</h1>
 
 <%= form_with(model: @record, local: true) do |form| %>
 
@@ -12,7 +12,7 @@
     <%= form.datetime_select :start_time %>
   </div>
 
-	<div class="distance">
+	<div class="content">
     <%= form.label :distance %>
     <%= form.number_field :distance %>
   </div>
